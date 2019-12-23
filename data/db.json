@@ -1,0 +1,149 @@
+{
+  "cliente": [
+    {
+      "nomeFantasia": "Teste 1",
+      "cpf": "459.364.420-80",
+      "cnpj": "18.841.812/0001-25",
+      "endereco": "Rua Teste 1",
+      "email": "teste1@teste1",
+      "referencias": "Teste 1",
+      "observacoes": "Teste 1",
+      "telefones": "[\"Tel teste 1\"]",
+      "ultimaAtualizacao": "2019-12-11T11:00:37.788Z",
+      "codigo": 1,
+      "enviar": 0,
+      "id": 1
+    },
+    {
+      "nomeFantasia": "Moacir Costa",
+      "cpf": "967.084.333-20",
+      "cnpj": "42.256.829/0001-08",
+      "endereco": "Povoado Rodela, Aracatiara",
+      "email": "moacircostajr@gmail.com",
+      "referencias": "tttteeeeeeeeeessssssssstttttttttteeeeeeeeee",
+      "observacoes": "teste",
+      "telefones": "[\"088-9-9755-6328\"]",
+      "ultimaAtualizacao": "2019-12-13T03:12:03.953Z",
+      "codigo": 2,
+      "enviar": 1,
+      "id": 2
+    },
+    {
+      "nomeFantasia": "Teste 1",
+      "cpf": "459.364.420-80",
+      "cnpj": "18.841.812/0001-25",
+      "endereco": "Rua Teste 1",
+      "email": "teste1@teste1",
+      "referencias": "Teste 1",
+      "observacoes": "Teste 1",
+      "telefones": "[\"Tel teste 1\"]",
+      "ultimaAtualizacao": "2019-12-11T11:00:37.788Z",
+      "codigo": null,
+      "enviar": 1,
+      "id": 3
+    },
+    {
+      "nomeFantasia": "Teste 2",
+      "cpf": "578.672.680-06",
+      "cnpj": "95.642.125/0001-21",
+      "endereco": "Rua Teste 2",
+      "email": "teste2@teste2",
+      "referencias": "Teste 2",
+      "observacoes": "Teste 2",
+      "telefones": "[\"88-9-9755-6328\",\"85-9-8186-1554\",\"85-3363-1230\"]",
+      "ultimaAtualizacao": "2019-12-11T15:39:27.063Z",
+      "codigo": null,
+      "enviar": 1,
+      "id": 4
+    },
+    {
+      "nomeFantasia": "Teste 1",
+      "cpf": "459.364.420-80",
+      "cnpj": "18.841.812/0001-25",
+      "endereco": "Rua Teste 1",
+      "email": "teste1@teste1",
+      "referencias": "Teste 1",
+      "observacoes": "Teste 1",
+      "telefones": "[\"Tel teste 1\"]",
+      "ultimaAtualizacao": "2019-12-11T11:00:37.788Z",
+      "codigo": null,
+      "enviar": 1,
+      "id": 5
+    },
+    {
+      "nomeFantasia": "Teste 2",
+      "cpf": "578.672.680-06",
+      "cnpj": "95.642.125/0001-21",
+      "endereco": "Rua Teste 2",
+      "email": "teste2@teste2",
+      "referencias": "Teste 2",
+      "observacoes": "Teste 2",
+      "telefones": "[\"88-9-9755-6328\",\"85-9-8186-1554\",\"85-3363-1230\"]",
+      "ultimaAtualizacao": "2019-12-11T15:39:27.063Z",
+      "codigo": null,
+      "enviar": 1,
+      "id": 6
+    }
+  ],
+  "usuario": [
+    {
+      "empresaRepresentacao": {
+        "sistema": "3",
+        "telefone": "[\"88-9-9755-6328\",\"85-9-8186-1554\"]",
+        "nomeFantasia": "Vértice Soluções",
+        "razaoSocial": "José Moacir da Costa Júnior MEI",
+        "proprietario": "Moacir Costa e Claudio Costa",
+        "cpf": "967.084.333-20",
+        "cnpj": "69.836.014/0001-46",
+        "endereco": "Rua Benício Marques Ribeiro, 53, Centro, Itarema-CE",
+        "email": "verticesolucoes@gmail.com"
+      },
+      "sobrenome": "Costa",
+      "perfil": 1,
+      "nome": "Moacir",
+      "email": "moacircostajr@gmail.com",
+      "senha": "123asdZXC",
+      "id": 1
+    },
+    {
+      "empresaRepresentacao": {
+        "sistema": "3",
+        "telefone": "[\"85-3363-1230\"]",
+        "nomeFantasia": "Moacir Magazine",
+        "razaoSocial": "Moacir Costa e Cia LTDA",
+        "proprietario": "Moacir Costa",
+        "cpf": "746.392.680-09",
+        "cnpj": "87.654.824/0001-63",
+        "endereco": "Av. Maria Moreira, 99, Centro, Paraipaba-CE",
+        "email": "moacir@teste.com"
+      },
+      "perfil": 1,
+      "nome": "Moacir e Aldeci",
+      "sobrenome": "Costa",
+      "email": "moacirmagazine@gmail.com",
+      "senha": "123asdZXC",
+      "id": 2
+    }
+  ],
+  "empresa": [
+    {
+      "id": 1,
+      "nomeFantasia": "Moacir Costa Representações",
+      "razaoSocial": "Moacir Costa Representações LTDA",
+      "proprietario": "Moacir Costa",
+      "cpf": "967.084.333-20",
+      "cnpj": "88.375.366/0001-96",
+      "endereco": "Av. Maria Moreira, 99, Centro, Paraipaba-CE, CEP 62685-000",
+      "telefone": "[\"85-3363-1230\"]",
+      "email": "teste@teste",
+      "sistema": 3
+    }
+  ],
+  "produto": [],
+  "grupo": [],
+  "pedido": [],
+  "item": [],
+  "caixa": [],
+  "lancamento": [],
+  "classificacao": []
+}

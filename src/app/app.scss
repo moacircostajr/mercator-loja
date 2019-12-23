@@ -1,0 +1,125 @@
+// App Styles
+// ----------------------------------------------------------------------------
+// Put style rules here that you want to apply to the entire application. These 
+// styles are for the entire app and not just one component. Additionally, this 
+// file can hold Sass mixins, functions, and placeholder classes to be imported 
+// and used throughout the application.
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+@font-face {
+    font-family: 'Roboto' !important;
+    //src: url('./src/assets/font/roboto/Roboto-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+.texto-titulo {
+    @media(max-width: 576px) {
+        font-size: 12pt;
+    }
+}
+
+.error-message {
+    font-size: 8pt;
+    color: red;
+}
+
+.imagem-cartao {
+    height: 20em;
+}
+
+.correcao-espaco-input {
+    padding-left: 16px;
+}
+
+.espacamento-padrao {
+    padding: 1em 0;
+}
+
+.botao-principal {
+    height: 450px;
+    background-color: #00089e;
+    //margin: 1em;
+    color: white;
+}
+
+.botao-padrao {
+    width: 15em;
+    text-transform: none;
+}
+.botoes {
+    margin-top: 13%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.botao-fab-inferior {
+    margin-bottom: 1em;
+    margin-right: 2em;
+}
+
+.link-botao {
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+    border-style: none;
+}
+
+/*
+a:hover {
+    cursor: pointer;
+}
+a:active {
+    background-color: #FFD00C;
+}
+*/
+
+.centralizar-horizontal {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.centralizar-coluna-horizontal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.altura-chart {
+    height: 25em;
+}
+
+.altura-chart-duplo {
+    height: 45em;
+}
+
+.altura-cartao-pequeno {
+    height: 223px;
+}
+
+.chart-container {
+    position: relative;
+    height: 1vh;
+    width: 4vw;
+}
+
+.centralizar-conjunto-linha {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.espacamento-duplo {
+    margin: 2em 0;
+}
+
+.centralizar-texto {
+    text-align: center;
+}

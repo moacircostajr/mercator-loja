@@ -1,0 +1,143 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title class="texto-titulo">Cliente</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+    <ion-fab vertical="top" horizontal="end" slot="fixed" edge="true">
+        <ion-fab-button (click)="registrarCliente()">
+            <ion-icon name="checkmark"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+
+    <ion-grid>
+        <ion-row>
+            <ion-col size="12" size-sm="12" size-md="4" size-lg="4" size-xl="4">
+                <ion-item>
+                    <!--        <ion-label position="floating">Nome/Nome de Fantasia</ion-label>-->
+                    <div [formGroup]="registerForm">
+                        <ion-input type="text" formControlName="nome_fantasia" placeholder="Nome Fantasia"
+                                   required></ion-input>
+                    </div>
+                    <div class="validation-errors">
+                        <ng-container *ngFor="let validation of validationMessages.nome_fantasia">
+                            <div class="error-message"
+                                 *ngIf="registerForm.get('nome_fantasia').hasError(validation.type) && (registerForm.get('nome_fantasia').dirty || registerForm.get('nome_fantasia').touched)">
+                                {{ validation.message }}
+                            </div>
+                        </ng-container>
+                    </div>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12" size-sm="12" size-md="4" size-lg="4" size-xl="4">
+                <ion-item>
+                    <div [formGroup]="registerForm">
+                        <ion-input type="text" formControlName="cpf" placeholder="CPF" required></ion-input>
+                    </div>
+                    <div class="validation-errors">
+                        <ng-container *ngFor="let validation of validationMessages.cpf">
+                            <div class="error-message"
+                                 *ngIf="(registerForm.get('cpf').status == 'INVALID' && registerForm.get('cpf').dirty) || (registerForm.get('cpf').hasError(validation.type) && (registerForm.get('cpf').dirty || registerForm.get('cpf').touched))">
+                                {{ validation.message }}
+                            </div>
+                        </ng-container>
+                    </div>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12" size-sm="12" size-md="4" size-lg="4" size-xl="4">
+                <ion-item>
+                    <div [formGroup]="registerForm">
+                        <ion-input type="text" formControlName="cnpj" placeholder="CNPJ" required></ion-input>
+                    </div>
+                    <div class="validation-errors">
+                        <ng-container *ngFor="let validation of validationMessages.cnpj">
+                            <div class="error-message"
+                                 *ngIf="(registerForm.get('cnpj').status == 'INVALID' && registerForm.get('cnpj').dirty) || (registerForm.get('cnpj').hasError(validation.type) && (registerForm.get('cnpj').dirty || registerForm.get('cnpj').touched))">
+                                {{ validation.message }}
+                            </div>
+                        </ng-container>
+                    </div>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12" size-sm="12" size-md="6" size-lg="6" size-xl="6">
+                <ion-item>
+                    <div [formGroup]="registerForm">
+                        <ion-input type="text" formControlName="endereco" placeholder="Endereço" required></ion-input>
+                    </div>
+                    <div class="validation-errors">
+                        <ng-container *ngFor="let validation of validationMessages.endereco">
+                            <div class="error-message"
+                                 *ngIf="registerForm.get('endereco').hasError(validation.type) && (registerForm.get('endereco').dirty || registerForm.get('endereco').touched)">
+                                {{ validation.message }}
+                            </div>
+                        </ng-container>
+                    </div>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12" size-sm="12" size-md="6" size-lg="6" size-xl="6">
+                <ion-item>
+                    <div [formGroup]="registerForm">
+                        <ion-input type="email" formControlName="email" placeholder="Email" required></ion-input>
+                    </div>
+                    <div class="validation-errors">
+                        <ng-container *ngFor="let validation of validationMessages.email">
+                            <div class="error-message"
+                                 *ngIf="registerForm.get('email').hasError(validation.type) && (registerForm.get('email').dirty || registerForm.get('email').touched)">{{ validation.message }}
+                            </div>
+                        </ng-container>
+                    </div>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12" size-sm="12" size-md="12" size-lg="12" size-xl="12">
+                <ion-item>
+                    <ion-textarea name="referencias" placeholder="Referências Comerciais" [(ngModel)]="cliente.referencias"></ion-textarea>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12" size-sm="12" size-md="12" size-lg="12" size-xl="12">
+                <ion-item>
+                    <ion-textarea name="observacoes" [(ngModel)]="cliente.observacoes" placeholder="Observações"></ion-textarea>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <!-- <ion-item-group padding> -->
+    <!-- CORRIGIR ESSA BAGAÇA -->
+    <ion-item lines="none">
+        <!--<ion-button name="novoTel" shape="round" (click)="novoTelefone()">
+            <ion-icon name="add"></ion-icon>
+        </ion-button>-->
+    </ion-item>
+    <ion-list class="ion-padding">
+        <!--        FIXME: As mensagens de erro aparecem somente no último campo -->
+        <!--        FIXME: quando o ultimo numero errado é removido, a mensagem de campo invalido aparece no campo anterior -->
+        <!--        <ion-item *ngFor="let telefone of telefones; index as i; trackBy: trackByFn(i, telefone); last as campoAtual">-->
+        <!--        FIXME: é obrigatório somente o preenchimento de 1 número de telefone -->
+        <ion-item *ngFor="let telefone of telefones; index as i; last as campoAtual">
+            <div [formGroup]="registerForm">
+                <ion-input #novoFone (ionBlur)="atualizaTelefone(telefone, novoFone.value)" placeholder="Telefone"
+                           value="{{telefone}}" (ionChange)="novoTelefone(i)" formControlName="telefone"></ion-input>
+                <div class="validation-errors">
+                    <ng-container *ngFor="let validation of validationMessages.telefone">
+                        <div class="error-message"
+                             *ngIf="(campoAtual && registerForm.get('telefone').status == 'INVALID' && registerForm.get('telefone').dirty) || (campoAtual && registerForm.get('telefone').hasError(validation.type) && (registerForm.get('telefone').dirty || registerForm.get('telefone').touched))">
+                            {{ validation.message }}
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+            <ion-buttons slot="end">
+                <ion-button (click)="removeTelefone(telefone)" fill="solid" color="primary">
+                    <ion-icon name="remove"></ion-icon>
+                </ion-button>
+            </ion-buttons>
+        </ion-item>
+    </ion-list>
+    <!-- </ion-item-group> -->
+    <!-- <ion-item style="text-align: center">
+      <ion-label><p>Última atualização:</p><p>{{ultimaAtualizacao}}</p></ion-label>
+    </ion-item> -->
+</ion-content>

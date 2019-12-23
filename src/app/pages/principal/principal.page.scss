@@ -1,0 +1,41 @@
+@import "../../app.scss";
+
+//$margens-rodape: 5px;
+/*
+
+.botoes-menu {
+    width: 60%;
+}
+*/
+/*
+
+#botao-configuracao {
+    position: relative;
+    margin-bottom: 2em;
+}
+*/
+
+
+.rodape {
+    position: fixed;
+    bottom: 0;
+    background-color: rgb(53, 53, 53);
+    height: 2em;
+    width: 100%;
+}
+
+.texto-rodape {
+    font-size: 8pt;
+    color: white;
+}
+
+/*.alinha-texto-esq {
+    text-align: left;
+    margin-left: $margens-rodape;
+}*/
+
+/*.alinha-texto-dir {
+    text-align: right;
+    margin-right: $margens-rodape;
+}*/
+

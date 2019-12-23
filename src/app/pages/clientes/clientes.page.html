@@ -1,0 +1,43 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title class="texto-titulo">Clientes</ion-title>
+  </ion-toolbar>
+  <!-- <ion-toolbar>
+    <ion-title>Buscar</ion-title>
+  </ion-toolbar> -->
+  <ion-toolbar>
+    <ion-searchbar #dadosCliente placeholder="Buscar" (ionInput)="buscarCliente(dadosCliente.value)"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-fab vertical="top" horizontal="end" slot="fixed" edge="true">
+    <ion-fab-button routerLink="/cliente">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-list id="list" class="ion-padding">
+    <ion-item-sliding *ngFor="let cliente of listaClientes">
+      <ion-item-options side="start">
+<!--        <ion-item-option color="primary" (click)="realizarPedido(cliente)">-->
+        <ion-item-option color="primary" routerLink="/pedido">
+          VENDER
+        </ion-item-option>
+      </ion-item-options>
+<!--      <ion-item (click)="acessarCliente(cliente)">-->
+      <ion-item>
+        {{cliente.nomeFantasia}}
+          <ion-buttons  slot="end">
+              <ion-button (click)="sincronizar()">
+                <ion-icon name="sync" *ngIf="cliente.enviar===1"></ion-icon>
+              </ion-button>
+          </ion-buttons>
+      </ion-item>
+    </ion-item-sliding>
+  </ion-list>
+
+</ion-content>

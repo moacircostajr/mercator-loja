@@ -1,0 +1,332 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title class="texto-titulo ion-text-center">Nova Conta</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+    <ion-fab vertical="top" horizontal="end" slot="fixed" edge="true" [hidden]="botaoEnvio">
+        <ion-fab-button (click)="registrarConta()">
+            <ion-icon name="checkmark"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+
+    <!--    <form padding [formGroup]="novaContaForm" (submit)="registrarConta()" novalidate>-->
+<!--    <ion-item-group>-->
+
+
+
+    <ion-grid>
+            <ion-row>
+                <ion-col>
+                    <ion-item>
+                        <ion-label>Sistema de Gerenciamento</ion-label>
+                        <ion-select [(ngModel)]="usuario.empresaRepresentacao.sistema">
+<!--                            <ion-select-option value="0">Mercadinho</ion-select-option>-->
+<!--                            <ion-select-option value="1">Confecção</ion-select-option>-->
+<!--                            <ion-select-option value="2">Facção</ion-select-option>-->
+                            <ion-select-option value="3">Representação</ion-select-option>
+<!--                            <ion-select-option value="4">Revendedora</ion-select-option>-->
+<!--                            <ion-select-option value="5">Oficina</ion-select-option>-->
+<!--                            <ion-select-option value="6">Autopeças</ion-select-option>-->
+<!--                            <ion-select-option value="7">Farmácia</ion-select-option>-->
+<!--                            <ion-select-option value="8">Padaria</ion-select-option>-->
+<!--                            <ion-select-option value="9">Clínica</ion-select-option>-->
+<!--                            <ion-select-option value="10">Locadora</ion-select-option>-->
+<!--                            <ion-select-option value="11">Escola</ion-select-option>-->
+                        </ion-select>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size="12" size-sm="12" size-md="12" size-lg="12" size-xl="12">
+                    <div class="espacamento-padrao centralizar-horizontal">
+                        <ion-label class="ion-text-center">EMPRESA</ion-label>
+                    </div>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size="12" size-sm="12" size-md="6" size-lg="6" size-xl="6">
+                    <ion-item>
+                        <ion-label position="floating">Nome de Fantasia</ion-label>
+                        <!--          <ion-input [(ngModel)]="usuario.empresaRepresentacao.nomeFantasia"></ion-input>-->
+                        <div [formGroup]="registerForm">
+                            <ion-input type="text" formControlName="nome_fantasia" required></ion-input>
+                        </div>
+                        <div class="validation-errors">
+                            <ng-container *ngFor="let validation of validationMessages.nome">
+                                <div class="error-message"
+                                     *ngIf="registerForm.get('nome_fantasia').hasError(validation.type) && (registerForm.get('nome_fantasia').dirty || registerForm.get('nome_fantasia').touched)">
+                                    {{ validation.message }}
+                                </div>
+                            </ng-container>
+                        </div>
+                    </ion-item>
+                </ion-col>
+                <ion-col size="12" size-sm="12" size-md="6" size-lg="6" size-xl="6">
+                    <ion-item>
+                        <ion-label position="floating">Razão Social</ion-label>
+                        <!--          <ion-input [(ngModel)]="usuario.empresaRepresentacao.razaoSocial" name="razao_social" minlength="6" required></ion-input>-->
+                        <div [formGroup]="registerForm">
+                            <ion-input type="text" formControlName="razao_social" required></ion-input>
+                        </div>
+                        <div class="validation-errors">
+                            <ng-container *ngFor="let validation of validationMessages.nome">
+                                <div class="error-message"
+                                     *ngIf="registerForm.get('razao_social').hasError(validation.type) && (registerForm.get('razao_social').dirty || registerForm.get('razao_social').touched)">
+                                    {{ validation.message }}
+                                </div>
+                            </ng-container>
+                        </div>
+                    </ion-item>
+                </ion-col>
+                <ion-col size="12" size-sm="12" size-md="6" size-lg="6" size-xl="6">
+                    <ion-item>
+                        <ion-label position="floating">Proprietário</ion-label>
+                        <!--          <ion-input [(ngModel)]="usuario.empresaRepresentacao.proprietario" name="proprietario" minlength="6" required></ion-input>-->
+                        <div [formGroup]="registerForm">
+                            <ion-input type="text" formControlName="proprietario" required></ion-input>
+                        </div>
+                        <div class="validation-errors">
+                            <ng-container *ngFor="let validation of validationMessages.nome">
+                                <div class="error-message"
+                                     *ngIf="registerForm.get('proprietario').hasError(validation.type) && (registerForm.get('proprietario').dirty || registerForm.get('proprietario').touched)">
+                                    {{ validation.message }}
+                                </div>
+                            </ng-container>
+                        </div>
+                    </ion-item>
+                </ion-col>
+                <ion-col size="12" size-sm="12" size-md="6" size-lg="6" size-xl="6">
+                    <ion-item>
+                        <ion-label position="floating">Cpf</ion-label>
+                        <!--            <ion-input [(ngModel)]="usuario.empresaRepresentacao.cpf" name="cpf"></ion-input>-->
+                        <div [formGroup]="registerForm">
+                            <ion-input type="text" formControlName="cpf" required></ion-input>
+                        </div>
+                        <div class="validation-errors">
+                            <ng-container *ngFor="let validation of validationMessages.cpf">
+                                <div class="error-message"
+                                     *ngIf="(registerForm.get('cpf').status == 'INVALID' && registerForm.get('cpf').dirty) || (registerForm.get('cpf').hasError(validation.type) && (registerForm.get('cpf').dirty || registerForm.get('cpf').touched))">
+                                    {{ validation.message }}
+                                </div>
+                            </ng-container>
+                        </div>
+                    </ion-item>
+                </ion-col>
+                <ion-col size="12" size-sm="12" size-md="6" size-lg="6" size-xl="6">
+                    <ion-item>
+                        <ion-label position="floating">Cnpj</ion-label>
+                        <!--            <ion-input [(ngModel)]="usuario.empresaRepresentacao.cnpj" name="cnpj"></ion-input>-->
+                        <div [formGroup]="registerForm">
+                            <ion-input type="text" formControlName="cnpj" required></ion-input>
+                        </div>
+                        <div class="validation-errors">
+                            <ng-container *ngFor="let validation of validationMessages.cnpj">
+                                <div class="error-message"
+                                     *ngIf="(registerForm.get('cnpj').status == 'INVALID' && registerForm.get('cnpj').dirty) || (registerForm.get('cnpj').hasError(validation.type) && (registerForm.get('cnpj').dirty || registerForm.get('cnpj').touched))">
+                                    {{ validation.message }}
+                                </div>
+                            </ng-container>
+                        </div>
+                    </ion-item>
+                </ion-col>
+                <ion-col size="12" size-sm="12" size-md="6" size-lg="6" size-xl="6">
+                    <ion-item>
+                        <ion-label position="floating">Email</ion-label>
+                        <!--            <ion-input [(ngModel)]="usuario.empresaRepresentacao.email" name="email"></ion-input>-->
+                        <div [formGroup]="registerForm">
+                            <ion-input type="email" formControlName="email_empresa" required></ion-input>
+                        </div>
+                        <div class="validation-errors">
+                            <ng-container *ngFor="let validation of validationMessages.email">
+                                <div class="error-message"
+                                     *ngIf="registerForm.get('email').hasError(validation.type) && (registerForm.get('email').dirty || registerForm.get('email').touched)">
+                                    {{ validation.message }}
+                                </div>
+                            </ng-container>
+                        </div>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size="12" size-sm="12" size-md="12" size-lg="12" size-xl="12">
+                    <ion-item>
+                        <ion-label position="floating">Endereço</ion-label>
+                        <!--          <ion-input [(ngModel)]="usuario.empresaRepresentacao.endereco" name="endereco"></ion-input>-->
+                        <div [formGroup]="registerForm">
+                            <ion-input type="text" formControlName="endereco" required></ion-input>
+                        </div>
+                        <div class="validation-errors">
+                            <ng-container *ngFor="let validation of validationMessages.endereco">
+                                <div class="error-message"
+                                     *ngIf="registerForm.get('endereco').hasError(validation.type) && (registerForm.get('endereco').dirty || registerForm.get('endereco').touched)">
+                                    {{ validation.message }}
+                                </div>
+                            </ng-container>
+                        </div>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size="12" size-sm="12" size-md="12" size-lg="12" size-xl="12">
+<!--                    <ion-item-group padding>-->
+                    <div class="espacamento-padrao">
+                        <div class="centralizar-conjunto-linha">
+                            <ion-label class="correcao-espaco-input">Telefones</ion-label>
+                            <ion-button (click)="novoTelefone(telefonesEmpresa)" shape="round" size="small">
+                                <ion-icon name="add"></ion-icon>
+                            </ion-button>
+                        </div>
+                        <ion-list>
+                            <ion-item *ngFor="let telefone of telefonesEmpresa">
+                                <ion-input #novoFone (ionBlur)="atualizaTelefone(telefone, novoFone.value, telefonesEmpresa)"
+                                           value="{{telefone}}"></ion-input>
+                                <ion-button (click)="removeTelefone(telefone, telefonesEmpresa)">
+                                    <ion-icon name="remove"></ion-icon>
+                                </ion-button>
+                            </ion-item>
+                        </ion-list>
+                    </div>
+<!--                    </ion-item-group>-->
+                </ion-col>
+            </ion-row>
+            <ion-row class="ion-justify-content-center">
+                <ion-col size="12" size-sm="12" size-md="12" size-lg="12" size-xl="12">
+                    <div class="espacamento-padrao centralizar-horizontal">
+                        <ion-label class="ion-text-center">ADMINISTRAÇÃO DA EMPRESA</ion-label>
+                    </div>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size="12" size-sm="12" size-md="4" size-lg="4" size-xl="4">
+                    <ion-item>
+                        <ion-label position="floating">Nome do Administrador</ion-label>
+                        <!--              <ion-input [(ngModel)]="usuario.nome" name="nome"></ion-input>-->
+                        <div [formGroup]="registerForm">
+                            <ion-input type="text" formControlName="nome" required></ion-input>
+                        </div>
+                        <div class="validation-errors">
+                            <ng-container *ngFor="let validation of validationMessages.nome">
+                                <div class="error-message"
+                                     *ngIf="registerForm.get('nome').hasError(validation.type) && (registerForm.get('nome').dirty || registerForm.get('nome').touched)">
+                                    {{ validation.message }}
+                                </div>
+                            </ng-container>
+                        </div>
+                    </ion-item>
+                </ion-col>
+                <ion-col size="12" size-sm="12" size-md="4" size-lg="4" size-xl="4">
+                    <ion-item>
+                        <ion-label position="floating">Sobrenome do Administrador</ion-label>
+                        <div [formGroup]="registerForm">
+                            <ion-input type="text" formControlName="sobrenome" required></ion-input>
+                        </div>
+                        <div class="validation-errors">
+                            <ng-container *ngFor="let validation of validationMessages.sobrenome">
+                                <div class="error-message"
+                                     *ngIf="registerForm.get('sobrenome').hasError(validation.type) && (registerForm.get('sobrenome').dirty || registerForm.get('sobrenome').touched)">
+                                    {{ validation.message }}
+                                </div>
+                            </ng-container>
+                        </div>
+                    </ion-item>
+                </ion-col>
+                <ion-col size="12" size-sm="12" size-md="4" size-lg="4" size-xl="4">
+                    <ion-item>
+                        <ion-label position="floating">Email</ion-label>
+                        <div [formGroup]="registerForm">
+                            <ion-input type="email" formControlName="email" required></ion-input>
+                        </div>
+                        <div class="validation-errors">
+                            <ng-container *ngFor="let validation of validationMessages.email">
+                                <div class="error-message"
+                                     *ngIf="registerForm.get('email').hasError(validation.type) && (registerForm.get('email').dirty || registerForm.get('email').touched)">
+                                    {{ validation.message }}
+                                </div>
+                            </ng-container>
+                        </div>
+                    </ion-item>
+                </ion-col>
+                <ion-col size="12" size-sm="12" size-md="6" size-lg="6" size-xl="6">
+                    <ion-item>
+                        <ion-label position="floating">Senha</ion-label>
+                        <div [formGroup]="matchingPasswordsGroup">
+                            <ion-input type="password" formControlName="password" required></ion-input>
+                        </div>
+                        <div class="validation-errors">
+                            <ng-container *ngFor="let validation of validationMessages.password">
+                                <div class="error-message"
+                                     *ngIf="g.get('password').hasError(validation.type) && (g.get('password').dirty || g.get('password').touched)">
+                                    {{ validation.message }}
+                                </div>
+                            </ng-container>
+                        </div>
+                    </ion-item>
+                </ion-col>
+                <ion-col size="12" size-sm="12" size-md="6" size-lg="6" size-xl="6">
+                    <ion-item>
+                        <ion-label position="floating">Confirmação da senha</ion-label>
+                        <div [formGroup]="matchingPasswordsGroup">
+                            <ion-input type="password" formControlName="confirm_password" required></ion-input>
+                        </div>
+                        <div class="validation-errors">
+                            <ng-container *ngFor="let validation of validationMessages.confirm_password">
+                                <div class="error-message"
+                                     *ngIf="((g.get('confirm_password').parent.errors)||(g.get('confirm_password').hasError(validation.type) && (g.get('confirm_password').dirty || g.get('confirm_password').touched)))">
+                                    {{ validation.message }}
+                                </div>
+                            </ng-container>
+                        </div>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+
+
+
+
+
+
+
+
+<!--    </ion-item-group>-->
+
+<!--    <ion-item-group>-->
+
+
+
+
+        <!--          <h6 *ngIf="errorEmail" class="error">{{messageEmail}}</h6>-->
+        <!--          <h6 *ngIf="errorRequired" class="error">{{messageRequired}}</h6>-->
+
+
+        <!--          <h6 *ngIf="errorPassword" class="error">{{messagePassword}}</h6>-->
+        <!--          <h6 *ngIf="errorRequired" class="error">{{messageRequired}}</h6>-->
+
+
+        <!--
+        <ion-item-group padding>
+            <div class="orientacao-em-linha">
+              <ion-label>Telefones</ion-label>
+              <ion-button (click)="novoTelefone(telefonesAdministrador)" shape="round" size="small">
+                <ion-icon name="add"></ion-icon>
+              </ion-button>
+            </div>
+            <ion-list>
+              <ion-item *ngFor="let telefone of telefonesAdministrador">
+                <ion-input #novoFone (ionBlur)="atualizaTelefone(telefone, novoFone.value, telefonesAdministrador)" value="{{telefone}}"></ion-input>
+                <ion-button (click)="removeTelefone(telefone, telefonesAdministrador)">
+                  <ion-icon name="remove"></ion-icon>
+                </ion-button>
+              </ion-item>
+            </ion-list>
+        </ion-item-group>
+        -->
+<!--    </ion-item-group>-->
+    <!--    </form>-->
+    <br/>
+</ion-content>

@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title class="texto-titulo">Produto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-fab vertical="top" horizontal="end" slot="fixed" edge="true">
+    <ion-fab-button>
+      <ion-icon name="checkmark"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+
+  <ion-item>
+    <ion-label position="floating">Discriminação</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Unidade</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Classificação</ion-label>
+    <ion-select [(ngModel)]="usuario.empresaRepresentacao.sistema">
+      <ion-select-option value="11">Escola</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Fornecedor</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+  <!--<ion-item>
+    <ion-label position="floating">Referências Comerciais</ion-label>
+    <ion-textarea></ion-textarea>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Observações</ion-label>
+    <ion-textarea></ion-textarea>
+  </ion-item>-->
+</ion-content>

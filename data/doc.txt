@@ -1,0 +1,60 @@
+localhost:8080/empresas = /api.mercator.com.br/v1/empresas/
+
+﻿O backend sera simulado com o JSON-SERVER, que deve ser instalado globalmente na sua maquina.
+
+Para realizar a instalação use: (no linux, é necessário incluir o sudo)
+
+npm install -g json-server
+
+O JSON-SERVER será instalado globalmente e poderá ser acessado com o comando:
+
+json-server
+
+
+Os arquivos de configuração para esse projeto ficam nesta pasta.
+
+db.js
+routes.js
+rodar_json (linux)
+rodar_json.bat (windows)
+
+para iniciar a execução do json-server use:
+
+./rodar_json (linux)
+./rodar_json.bat (windows)
+
+A inicialização ocorrerá a partir do seguinte comando:
+
+json-server -w db.json -r routes.json -p 8080
+
+O json-server irá dar acesso ao json db.clientes através das rotas informadas pelo arquivo routes.json e da porta 8080
+
+Eis o retorno da inicialização correta:
+
+
+  \{^_^}/ hi!
+
+  Loading db.json
+  Loading routes.json
+  Done
+
+  Resources
+  http://localhost:8080/clientes
+
+  Other routes
+  lab85-cashflow-web/v1/clientes -> db.clientes
+
+  Home
+  http://localhost:8080
+
+  Type s + enter at any time to create a snapshot of the database
+  Watching...
+
+GET /clientes 200 14.663 ms - -
+
+
+Bom desenvolvimento!
+
+=> envio de pedidos por email;
+=> cliente empresa:
+ - cpf, cnpj, nome de fantasia, endereço, telefone, proprietario, razao social,

@@ -1,0 +1,62 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title class="texto-titulo">Venda</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+    <ion-fab vertical="top" horizontal="end" slot="fixed" edge="true">
+        <!--    <ion-fab-button (click)="registrarPedido()">-->
+        <ion-fab-button>
+            <ion-icon name="checkmark"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+
+    <ion-fab class="botao-fab-inferior" vertical="bottom" horizontal="end" slot="fixed">
+        <!--    <ion-fab-button (click)="novoItem()">-->
+        <ion-fab-button>
+            <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+    <ion-card (click)="acessarCliente()">
+        <ion-card-header>
+            <ion-card-title>TOTAL: R$ 10,00</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            <h2>CLIENTE</h2>
+            <!--        <ion-label>{{cliente.nome}}</ion-label><br>-->
+            <ion-label>Nome do cliente</ion-label>
+            <br>
+        </ion-card-content>
+    </ion-card>
+    <ion-item-group>
+        <ion-item>
+            <ion-label>Produtos</ion-label>
+        </ion-item>
+        <ion-list>
+            <!--        <ion-item *ngFor="let item of pedido.itensPedido">-->
+            <ion-item>
+                <ion-label position="floating">Discriminação</ion-label>
+                <!--          <ion-input [(ngModel)]="item.discriminacao" autocomplete="on"></ion-input>-->
+                <ion-input></ion-input>
+                <!-- <ion-input value="Discriminação" #valor (ionBlur)="atualiza(banca, valor.value)"></ion-input> -->
+                <ion-label position="floating">Quantidade</ion-label>
+                <!--          <ion-input [(ngModel)]="item.quantidade"></ion-input>-->
+                <ion-input></ion-input>
+                <ion-label position="floating">Unidade</ion-label>
+                <!--          <ion-input [(ngModel)]="item.unidade"></ion-input>-->
+                <ion-input></ion-input>
+                <ion-label position="floating">Valor</ion-label>
+                <!--          <ion-input [(ngModel)]="item.valor"></ion-input>-->
+                <ion-input></ion-input>
+            </ion-item>
+        </ion-list>
+    </ion-item-group>
+    <div>
+        <p id="fim"></p>
+    </div>
+</ion-content>

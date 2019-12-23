@@ -1,0 +1,42 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title class="texto-titulo">Vendas</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar #dadosPedido placeholder="Buscar" (ionInput)="buscarPedidos(dadosPedido.value)"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-fab vertical="top" horizontal="end" slot="fixed" edge="true">
+    <ion-fab-button routerLink="/pedido">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <!-- <ion-searchbar placeholder="Cliente" autocomplete="on" animated="true"></ion-searchbar> -->
+<!--  <ion-list id="list" *ngIf="pedidos.length>0">-->
+  <ion-list class="ion-padding">
+<!--    <ion-item-sliding *ngFor="let pedido of pedidos">-->
+    <ion-item-sliding>
+      <ion-item-options side="start">
+<!--        <ion-item-option color="secondary" (click)="removerPedido(pedido)">-->
+        <ion-item-option color="secondary">
+          REMOVER
+        </ion-item-option>
+      </ion-item-options>
+      <ion-item>
+        Valor do pedido <br/>
+        Data e hora do pedido
+      </ion-item>
+      <!--<ion-item (click)="acessarPedido(pedido)">
+        {{pedido.valorTotal}}
+        {{pedido.momento}}
+      </ion-item>-->
+    </ion-item-sliding>
+  </ion-list>
+
+</ion-content>

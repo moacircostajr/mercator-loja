@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title class="texto-titulo">Configurações</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-item>
+    <ion-label>Atualização manual</ion-label>
+<!--    <ion-toggle [(ngModel)]="atualiz" (ionBlur)="registrarConfiguracoes()" name="atualizacoes"></ion-toggle>-->
+    <ion-toggle name="atualizacoes"></ion-toggle>
+  </ion-item>
+  <div class="centralizar-horizontal">
+<!--    <ion-button (click)="atualizarSistema()" [disabled]="!atualiz" class="botao-padrao">Atualizar</ion-button>-->
+    <div class="espacamento-padrao">
+      <ion-button class="botao-padrao">Atualizar</ion-button>
+    </div>
+  </div>
+</ion-content>

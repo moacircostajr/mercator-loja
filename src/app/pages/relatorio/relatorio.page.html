@@ -1,0 +1,55 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title class="texto-titulo">Relatório</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+    <ion-fab vertical="top" horizontal="end" slot="fixed" edge="true">
+        <ion-fab-button>
+            <ion-icon name="checkmark"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+    <div>
+      <ion-item>
+        <ion-label>Tipo de relatório</ion-label>
+        <ion-select>
+          <ion-select-option>Pedidos global</ion-select-option>
+          <ion-select-option>Pedidos por produto</ion-select-option>
+          <ion-select-option>Faturamento</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+          <ion-label>Período</ion-label>
+          <ion-select>
+              <ion-select-option>Mensal</ion-select-option>
+              <ion-select-option>Trimestral</ion-select-option>
+              <ion-select-option>Anual</ion-select-option>
+          </ion-select>
+      </ion-item>
+      <ion-item>
+          <ion-label>Início</ion-label>
+          <ion-datetime displayFormat="MM YYYY" placeholder="Selecione uma data"></ion-datetime>
+      </ion-item>
+      <ion-item>
+          <ion-label>Fim</ion-label>
+          <ion-datetime displayFormat="MM YYYY" placeholder="Selecione uma data"></ion-datetime>
+      </ion-item>
+
+      <div class="espacamento-duplo">
+        <div class="centralizar-horizontal">
+          <div class="espacamento-padrao">
+            <ion-label>Emitir</ion-label>
+          </div>
+        </div>
+        <div class="centralizar-horizontal">
+          <ion-button class="botao-padrao">Relatório em planilha</ion-button>
+          <ion-button class="botao-padrao">Relatório em PDF</ion-button>
+        </div>
+      </div>
+    </div>
+
+</ion-content>

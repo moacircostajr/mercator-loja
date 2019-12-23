@@ -1,0 +1,219 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title class="texto-titulo">Mercator - {{menu.nome}}</ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="sair()">
+          <ion-icon name="power"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid>
+        <ion-row>
+            <ion-col size="12" size-sm="12" size-md="4" size-lg="4" size-xl="4">
+                <ion-card routerLink="/pedido" class="altura-cartao-pequeno">
+                    <ion-card-content>
+                        <div class="espacamento-duplo">
+                            <div class="centralizar-texto" style="display: flex; flex-wrap: nowrap">
+                                <h1 style="font-size: 350%">Quadro de Ações</h1>
+                                espaço para 6 botoes
+                            </div>
+                        </div>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+
+            <ion-col size="12" size-sm="12" size-md="4" size-lg="4" size-xl="4">
+                <ion-card class="altura-cartao-pequeno">
+                    <ion-card-header>
+                        <ion-card-title>
+                            Sincronização
+                        </ion-card-title>
+                        <ion-card-subtitle>
+                            Define se a sincronização será automática ou via aionamento do usuário
+                        </ion-card-subtitle>
+                    </ion-card-header>
+                    <ion-card-content>
+                        <div>
+                            <ion-item>
+                                <ion-label>Automaticamente</ion-label>
+                                <ion-toggle [checked]="!controleAtualizacaoManual" (ionChange)="toggleControleAtualizacao()"></ion-toggle>
+                            </ion-item>
+                            <div>
+                                <div class="centralizar-horizontal">
+                                    <ion-button class="botao-padrao" [disabled]="!controleAtualizacaoManual">Sincronizar</ion-button>
+                                </div>
+                            </div>
+                        </div>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+
+            <ion-col size="12" size-sm="12" size-md="4" size-lg="4" size-xl="4">
+                <ion-card class="altura-cartao-pequeno">
+                    <ion-card-header>
+                        <ion-card-title>
+                            Clientes
+                        </ion-card-title>
+                        <ion-card-subtitle>
+                            Número clientes registrados
+                        </ion-card-subtitle>
+                    </ion-card-header>
+                    <ion-card-content>
+                        <div class="espacamento-padrao altura-cartao-pequeno">
+                            <div class="centralizar-horizontal">
+                                <h3 style="font-size: 350%; display: flex; flex-wrap: nowrap">999999</h3>
+                            </div>
+                        </div>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col size="12" size-sm="12" size-md="6" size-lg="6" size-xl="6">
+                <ion-card>
+                    <ion-card-header>
+                        <ion-card-title>Montante negociado</ion-card-title>
+                        <ion-card-subtitle>Evolução do montante negociado</ion-card-subtitle>
+                    </ion-card-header>
+                    <ion-card-content>
+                        <div class="espacamento-duplo">
+                            <div class="centralizar-coluna-horizontal">
+                                <canvas #lineCanvas class="chart-container"></canvas>
+                            </div>
+                        </div>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+
+            <ion-col size="12" size-sm="12" size-md="6" size-lg="6" size-xl="6">
+                <ion-card>
+                    <ion-card-header>
+                        <ion-card-title>Volume de pedidos</ion-card-title>
+                        <ion-card-subtitle>Quantidade de pedidos realizados</ion-card-subtitle>
+                    </ion-card-header>
+                    <ion-card-content>
+                        <div class="espacamento-duplo">
+                            <div class="centralizar-coluna-horizontal">
+                                <canvas #barCanvas class="chart-container"></canvas>
+                            </div>
+                        </div>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+
+            <ion-col size="12" size-sm="12" size-md="12" size-lg="12" size-xl="12">
+                <ion-card>
+                    <ion-card-header>
+                        <ion-card-title>Acompanhamento do mix de produtos</ion-card-title>
+                        <ion-card-subtitle>Quantidade de itens negociados, classificados por categoria</ion-card-subtitle>
+                    </ion-card-header>
+                    <ion-card-content>
+                        <div class="espacamento-duplo">
+                            <div class="centralizar-coluna-horizontal">
+                                <!--TODO: mix de produtos individual-->
+                                <canvas #donnutCanvasMixIndividual class="chart-container"></canvas>
+                            </div>
+                        </div>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <div class="espacamento-duplo">
+        <ion-grid>
+
+            <ion-row>
+                <ion-col>
+                    <ion-label class="centralizar-horizontal">Estatísticas globais</ion-label>
+                </ion-col>
+            </ion-row>
+
+            <ion-row>
+                <ion-col size="12" size-sm="12" size-md="6" size-lg="6" size-xl="6">
+                    <ion-card>
+                        <ion-card-header>
+                            <ion-card-title>Acompanhamento da equipe</ion-card-title>
+                            <ion-card-subtitle>Resultado individual dos membros da equipe de negócios</ion-card-subtitle>
+                        </ion-card-header>
+                        <ion-card-content>
+                            <div class="espacamento-duplo">
+                                <div class="centralizar-coluna-horizontal">
+                                    <canvas #donnutCanvasVendasGlobal class="chart-container"></canvas>
+                                </div>
+                            </div>
+                        </ion-card-content>
+                    </ion-card>
+                </ion-col>
+                <ion-col size="12" size-sm="12" size-md="6" size-lg="6" size-xl="6">
+                    <ion-card>
+                        <ion-card-header>
+                            <ion-card-title>Evolução do mix</ion-card-title>
+                            <ion-card-subtitle>Quantidade global de itens negociados, classificados por categoria</ion-card-subtitle>
+                        </ion-card-header>
+                        <ion-card-content>
+                            <div class="espacamento-duplo">
+                                <div class="centralizar-coluna-horizontal">
+                                    <canvas #donnutCanvasMixGlobal class="chart-container"></canvas>
+                                </div>
+                            </div>
+                        </ion-card-content>
+                    </ion-card>
+                </ion-col>
+            </ion-row>
+
+            <ion-row>
+                <ion-col size="12" size-sm="12" size-md="12" size-lg="12" size-xl="12">
+                    <ion-card>
+                        <ion-card-header>
+                            <ion-card-title>Demonstrativo de eficiência</ion-card-title>
+                            <ion-card-subtitle>Quadro comparativo entre valores negociados e quantidade de pedidos</ion-card-subtitle>
+                        </ion-card-header>
+                        <ion-card-content>
+                            <div class="espacamento-duplo">
+                                <div class="centralizar-coluna-horizontal">
+                                    <canvas #mixedCanvas class="chart-container"></canvas>
+                                </div>
+                            </div>
+                        </ion-card-content>
+                    </ion-card>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+
+    <!--
+    <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+      <ion-fab-button routerLink="/configuracoes" id="botao-configuracao">
+        <ion-icon name="settings"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  -->
+    <!--
+    <div id="menu-principal" class="centraliza-horiz-vert">
+          <ion-button class="botoes-menu" *ngFor="let opcao of menu.opcoes" routerLink="{{opcao.link}}">{{opcao.funcao}}</ion-button>
+    </div>
+    -->
+    <div class="rodape">
+        <table class="largura-tela">
+            <tr>
+                <td>
+                    <p class="alinha-texto-esq texto-rodape">Início em Jun 2019</p>
+                </td>
+                <td>
+                    <p class="alinha-texto-dir texto-rodape">Versao: alfa_2019.10</p>
+                </td>
+            </tr>
+        </table>
+    </div>
+</ion-content>

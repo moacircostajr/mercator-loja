@@ -1,0 +1,8 @@
+    {
+        "representacao/clientes" : "mercator_representacao.cliente",
+        "api.mercator.com.br/v1/estoques": "estoques",
+        "api.mercator.com.br/v1/empresas": "empresas",
+        "api.mercator.com.br/v1/empresas/:id": "empresas/:id",
+        "api.mercator.com.br/v1/usuarios": "usuarios",
+        "api.mercator.com.br/v1/produtos": "produtos"
+    }
